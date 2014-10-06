@@ -1,16 +1,29 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 public class AsciiVersion {
 	private final static Logger logger=LoggerFactory.getLogger(AsciiVersion.class);
-	public static void main(String args[]){
+	public static void main(String args[]) throws Exception{
 		String str="abcdea";
-		if(AsciiVersion.isUniqueCHars2(str)){
-			logger.debug(str+" has all unique characters");
-		}else{
-			logger.debug(str+" has duplicated characters");
+		
+		BufferedReader br = new BufferedReader(new FileReader(new File("test/TestStrings")));
+		String line;
+		while ((line = br.readLine()) != null) {
+			
+			if(AsciiVersion.isUniqueCHars2(line)){
+				logger.debug(str+" has all unique characters");
+			}else{
+				logger.debug(str+" has duplicated characters");
+			}
 		}
+		br.close();
+		
+		
 		
 	}
 	
