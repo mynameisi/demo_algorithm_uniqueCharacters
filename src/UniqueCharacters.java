@@ -23,7 +23,7 @@ public class UniqueCharacters {
 		BufferedReader br = new BufferedReader(new FileReader(new File("test/TestStrings")));
 		String line;
 		while ((line = br.readLine()) != null) {
-			if (StringUtil.isUniqueCharsACSII(line)) {
+			if (StringUtil.isUniqueCharsLowerCaseLetters(line)) {
 				logger.debug(line + " has all unique characters");
 			} else {
 				logger.debug(line + " has duplicated characters");
